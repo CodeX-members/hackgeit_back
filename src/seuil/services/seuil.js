@@ -6,11 +6,11 @@ const email = process.env.DEV_EMAIL;
 const deviceId = process.env.DEVICE_ID;
 
 
-async function seuil() {
+async function seuil(id) {
     const apiUrl = new URL(url);
     apiUrl.searchParams.append('developerId', developerId);
     apiUrl.searchParams.append('email', email);
-    apiUrl.searchParams.append('deviceId', deviceId);
+    apiUrl.searchParams.append('deviceId', id ?? deviceId);
 
     try {
         const response = await fetch(

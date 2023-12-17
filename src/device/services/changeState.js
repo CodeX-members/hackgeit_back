@@ -5,7 +5,6 @@ const apiUrl = `${process.env.BOULOU_API_URL}/boulou_switch_device`;
 const developerId = process.env.DEVELOPER_ID;
 const email = process.env.DEV_EMAIL;
 const deviceId = process.env.DEVICE_ID;
-switch_status = make.SWITCH.ON;
 
 async function changeState(switch_value) {
     let reqBody = {
@@ -14,6 +13,10 @@ async function changeState(switch_value) {
         deviceId: deviceId,
         switch_status: switch_value
     }
+
+    // console.log('====================================');
+    // console.log(switch_value)
+    // console.log('====================================');
 
     try {
         const response = await fetch(
