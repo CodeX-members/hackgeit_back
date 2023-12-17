@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var get = require('../controllers/VerifyDeviceStatus.js');
+var set = require('../controllers/Switch');
 /* GET home page. */
-router.get('/', get.verifyDeviceStatus);
+router.post('/', set.switchDevice);
 
 module.exports = router;

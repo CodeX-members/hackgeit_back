@@ -6,22 +6,27 @@ const email = process.env.DEV_EMAIL;
 const deviceId = process.env.DEVICE_ID;
 
 
-async function seuilController(req, res, next) {
+async function seuil(req, res, next) {
     const apiUrl = new URL(url);
     apiUrl.searchParams.append('developerId', developerId);
     apiUrl.searchParams.append('email', email);
     apiUrl.searchParams.append('deviceId', deviceId);
 
-    const response = await fetch(
-        apiUrl,
-        {
-            method: 'get',
-            headers: { 'Content-Type': 'application/json' }
-        });
-    const data = await response.json();
-    res.json(data);
+    try {
+        const response = await fetch(
+            apiUrl,
+            {
+                method: 'get',
+                headers: { 'Content-Type': 'application/json' }
+            });
+        return await response.json();
+        // res.json(data);
+    } catch (error) {
+        console.error('Error calling API:', error.message);
+        res.status(500).send('Internal Server Error');
+    }
 }
 
 module.exports = {
-    seuilController
+    seuil
 };
