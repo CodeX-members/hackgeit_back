@@ -6,7 +6,7 @@ const email = process.env.DEV_EMAIL;
 const deviceId = process.env.DEVICE_ID;
 
 
-async function seuil(req, res) {
+async function seuil() {
     const apiUrl = new URL(url);
     apiUrl.searchParams.append('developerId', developerId);
     apiUrl.searchParams.append('email', email);
@@ -23,7 +23,7 @@ async function seuil(req, res) {
         // res.json(data);
     } catch (error) {
         console.error('Error calling API:', error.message);
-        res.status(500).send('Internal Server Error');
+       return await('Internal Server Error');
     }
 }
 
