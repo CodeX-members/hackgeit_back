@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-var get = require('./Seuil');
+var get = require('../services/seuil');
 const req_time = process.env.TIMING_GET_DEVICE_STATUS;
 
 interval = 0;

@@ -6,7 +6,7 @@ const email = process.env.DEV_EMAIL;
 const deviceId = process.env.DEVICE_ID;
 
 
-async function seuil(req, res, next) {
+async function seuil(req, res) {
     const apiUrl = new URL(url);
     apiUrl.searchParams.append('developerId', developerId);
     apiUrl.searchParams.append('email', email);
